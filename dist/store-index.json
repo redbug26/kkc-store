@@ -1,15 +1,37 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-04-29T18:00:12.150193+00:00",
+  "generated_at": "2026-04-29T18:22:35.350023+00:00",
   "source_repo": "https://github.com/redbug26/kkc-plugins",
-  "plugins_count": 3,
+  "plugins_count": 5,
   "plugins": [
     {
-      "id": "amstrad-dsk",
-      "name": "Amstrad DSK",
+      "id": "amsdos-viewer",
+      "name": "amsdos_viewer",
+      "version": "1.0.2",
+      "type": "viewer",
+      "description": "Viewer for Amstrad AMSDOS files",
+      "mime_types": [
+        "application/x-amstrad-cpc-amsdos"
+      ],
+      "modes": [
+        "text"
+      ],
+      "location": {
+        "kind": "local",
+        "path": "/plugins/amsdos_viewer/assets"
+      },
+      "descriptor": "plugins/amsdos_viewer/plugin.toml",
+      "extra": {
+        "author": "kkc community",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "amstrad-dsk-directory",
+      "name": "amstrad_dsk_directory",
       "version": "1.0.0",
-      "type": "archive",
-      "description": "Plugin archive/viewer pour images DSK Amstrad CPC",
+      "type": "viewer",
+      "description": "Amstrad CPC DSK directory viewer",
       "mime_types": [
         "application/x-amstrad-cpc-dsk"
       ],
@@ -18,11 +40,33 @@
       ],
       "location": {
         "kind": "local",
-        "path": "/assets/plugins/amstrad_dsk"
+        "path": "/plugins/amstrad_dsk/assets"
       },
-      "descriptor": "plugins/example-local/plugin.toml",
+      "descriptor": "plugins/amstrad_dsk/plugin.toml",
       "extra": {
-        "author": "kkc team",
+        "author": "kkc community",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "commodore-d64-directory",
+      "name": "commodore_d64_directory",
+      "version": "1.0.0",
+      "type": "viewer",
+      "description": "Commodore 64 D64 directory viewer",
+      "mime_types": [
+        "application/x-c64-d64"
+      ],
+      "modes": [
+        "text"
+      ],
+      "location": {
+        "kind": "local",
+        "path": "/plugins/commodore_d64/assets"
+      },
+      "descriptor": "plugins/commodore_d64/plugin.toml",
+      "extra": {
+        "author": "kkc community",
         "license": "MIT"
       }
     },
@@ -53,10 +97,10 @@
     },
     {
       "id": "vcard-viewer",
-      "name": "vCard Viewer",
+      "name": "vcard_viewer",
       "version": "1.0.4",
       "type": "viewer",
-      "description": "Viewer plugin for .vcf vCard contact files",
+      "description": "vCard contact viewer",
       "mime_types": [
         "text/vcard"
       ],
@@ -74,5 +118,5 @@
       }
     }
   ],
-  "tag": "0.0.5"
+  "tag": "0.0.7"
 }
