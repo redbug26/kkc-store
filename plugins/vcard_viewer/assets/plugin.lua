@@ -215,7 +215,7 @@ end
 
 kkc.register_viewer_plugin({
     name = "vcard_viewer",
-    version = "1.0.3",
+    version = "1.0.4",
     description = "vCard contact viewer",
     modes = { "text" },
     mime_types = { "text/vcard" },
