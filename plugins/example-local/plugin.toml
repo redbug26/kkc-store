@@ -9,7 +9,7 @@ modes = ["text"]
 
 [location]
 kind = "local"
-path = "assets/plugins/amstrad_dsk"
+path = "../../assets/plugins/amstrad_dsk"
 
 [extra]
 author = "kkc team"

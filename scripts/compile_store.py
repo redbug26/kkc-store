@@ -80,7 +80,15 @@ def validate_plugin(desc: dict, descriptor_path: Path, repo_root: Path) -> dict:
         lpath = location.get("path")
         if not isinstance(lpath, str) or not lpath.strip():
             fail("location.path must be a non-empty string for local plugins")
-        normalized_location["path"] = lpath
+        local_path = Path(lpath)
+        if local_path.is_absolute():
+            fail("location.path must be relative to the plugin.toml directory for local plugins")
+        resolved_local = (descriptor_path.parent / local_path).resolve()
+        try:
+            repo_relative_local = resolved_local.relative_to(repo_root)
+        except ValueError:
+            fail("local location.path must resolve inside the repository")
+        normalized_location["path"] = f"/{repo_relative_local.as_posix()}"
     else:
         repo = location.get("repo")
         ref = location.get("ref", "main")

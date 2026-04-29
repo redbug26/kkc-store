@@ -46,6 +46,21 @@ if git rev-parse "$NEW_TAG" >/dev/null 2>&1; then
     exit 1
 fi
 
+# Stage everything and commit before tagging
+echo "Staging all changes..."
+git add -A
+
+if git diff --cached --quiet; then
+    echo "No staged changes to commit."
+else
+    COMMIT_MSG="chore: prepare release $NEW_TAG"
+    echo "Committing changes: $COMMIT_MSG"
+    git commit -m "$COMMIT_MSG"
+fi
+
+echo "Pushing branch updates before tagging..."
+git push origin HEAD
+
 # Create and push the tag
 echo "Creating tag: $NEW_TAG (previous: $LATEST_TAG)"
 git tag -a "$NEW_TAG" -m "Version $NEW_TAG"

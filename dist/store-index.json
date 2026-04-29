@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-04-29T17:33:01.189709+00:00",
+  "generated_at": "2026-04-29T17:42:12.503013+00:00",
   "source_repo": "https://github.com/redbug26/kkc-plugins",
   "plugins_count": 3,
   "plugins": [
@@ -18,7 +18,7 @@
       ],
       "location": {
         "kind": "local",
-        "path": "assets/plugins/amstrad_dsk"
+        "path": "/assets/plugins/amstrad_dsk"
       },
       "descriptor": "plugins/example-local/plugin.toml",
       "extra": {
@@ -65,7 +65,7 @@
       ],
       "location": {
         "kind": "local",
-        "path": "assets/plugins/vcard_viewer"
+        "path": "/assets/plugins/vcard_viewer"
       },
       "descriptor": "plugins/vcard_viewer/plugin.toml",
       "extra": {
