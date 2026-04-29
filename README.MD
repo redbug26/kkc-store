@@ -65,6 +65,24 @@ Output:
 
 - `dist/store-index.json`
 
+## Bump version tag
+
+To increment the version and create a new tag:
+
+```bash
+./scripts/bump-tag.sh              # Increment patch: 0.0.0 → 0.0.1
+./scripts/bump-tag.sh minor        # Increment minor: 0.0.1 → 0.1.0
+./scripts/bump-tag.sh major        # Increment major: 0.1.0 → 1.0.0
+```
+
+The script:
+- Reads the latest tag (or defaults to `0.0.0` if none exist)
+- Increments the version according to the specified type (patch, minor, major)
+- Creates an annotated git tag
+- Pushes the tag to GitHub
+
+A GitHub Actions workflow automatically triggers when a new tag is pushed, recompiling `dist/store-index.json` and committing the updated index to `main`.
+
 ## Suggested workflow
 
 1. Add a directory `plugins/<plugin-id>/`

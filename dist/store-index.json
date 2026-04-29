@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-04-29T14:31:06.832518+00:00",
+  "generated_at": "2026-04-29T16:54:00.110066+00:00",
   "source_repo": "https://github.com/redbug26/kkc-plugins",
   "plugins_count": 3,
   "plugins": [
@@ -73,5 +73,6 @@
         "license": "MIT"
       }
     }
-  ]
+  ],
+  "tag": "0.0.1"
 }

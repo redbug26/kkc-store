@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -124,6 +125,23 @@ def validate_plugin(desc: dict, descriptor_path: Path, repo_root: Path) -> dict:
     }
 
 
+def get_latest_tag(repo_root: Path) -> str | None:
+    """Get the latest git tag, or None if no tags exist."""
+    try:
+        result = subprocess.run(
+            ["git", "describe", "--tags", "--abbrev=0"],
+            cwd=repo_root,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if result.returncode == 0:
+            return result.stdout.strip()
+    except Exception:
+        pass
+    return None
+
+
 def build_index(repo_root: Path, plugins_dir: Path) -> dict:
     descriptors = sorted(plugins_dir.glob("*/plugin.toml"))
     plugins: list[dict] = []
@@ -140,12 +158,15 @@ def build_index(repo_root: Path, plugins_dir: Path) -> dict:
 
     plugins.sort(key=lambda p: p["id"])
 
+    latest_tag = get_latest_tag(repo_root)
+
     return {
         "schema_version": 1,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "source_repo": "https://github.com/redbug26/kkc-plugins",
         "plugins_count": len(plugins),
         "plugins": plugins,
+        "tag": latest_tag,
     }
 
 
