@@ -1,0 +1,16 @@
+[plugin]
+id = "amstrad-dsk"
+name = "Amstrad DSK"
+version = "1.0.0"
+type = "archive"
+description = "Plugin archive/viewer pour images DSK Amstrad CPC"
+mime_types = ["application/x-amstrad-cpc-dsk"]
+modes = ["text"]
+
+[location]
+kind = "local"
+path = "assets/plugins/amstrad_dsk"
+
+[extra]
+author = "kkc team"
+license = "MIT"

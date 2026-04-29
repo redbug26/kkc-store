@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-04-29T14:31:06.832518+00:00",
+  "source_repo": "https://github.com/redbug26/kkc-plugins",
+  "plugins_count": 3,
+  "plugins": [
+    {
+      "id": "amstrad-dsk",
+      "name": "Amstrad DSK",
+      "version": "1.0.0",
+      "type": "archive",
+      "description": "Plugin archive/viewer pour images DSK Amstrad CPC",
+      "mime_types": [
+        "application/x-amstrad-cpc-dsk"
+      ],
+      "modes": [
+        "text"
+      ],
+      "location": {
+        "kind": "local",
+        "path": "assets/plugins/amstrad_dsk"
+      },
+      "descriptor": "plugins/example-local/plugin.toml",
+      "extra": {
+        "author": "kkc team",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "json-viewer",
+      "name": "JSON Viewer",
+      "version": "1.2.0",
+      "type": "viewer",
+      "description": "Viewer JSON externe",
+      "mime_types": [
+        "application/json",
+        "text/json"
+      ],
+      "modes": [
+        "text"
+      ],
+      "location": {
+        "kind": "github",
+        "repo": "redbug26/kkc-plugins",
+        "ref": "main",
+        "path": "assets/plugins/json_viewer"
+      },
+      "descriptor": "plugins/example-remote/plugin.toml",
+      "extra": {
+        "author": "community",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "vcard-viewer",
+      "name": "vCard Viewer",
+      "version": "1.0.0",
+      "type": "viewer",
+      "description": "Viewer plugin for .vcf vCard contact files",
+      "mime_types": [
+        "text/vcard"
+      ],
+      "modes": [
+        "text"
+      ],
+      "location": {
+        "kind": "local",
+        "path": "assets/plugins/vcard_viewer"
+      },
+      "descriptor": "plugins/vcard_viewer/plugin.toml",
+      "extra": {
+        "author": "kkc community",
+        "license": "MIT"
+      }
+    }
+  ]
+}

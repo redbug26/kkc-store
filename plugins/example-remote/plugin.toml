@@ -1,0 +1,18 @@
+[plugin]
+id = "json-viewer"
+name = "JSON Viewer"
+version = "1.2.0"
+type = "viewer"
+description = "Viewer JSON externe"
+mime_types = ["application/json", "text/json"]
+modes = ["text"]
+
+[location]
+kind = "github"
+repo = "redbug26/kkc-plugins"
+path = "assets/plugins/json_viewer"
+ref = "main"
+
+[extra]
+author = "community"
+license = "MIT"

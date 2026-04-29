@@ -1,0 +1,16 @@
+[plugin]
+id = "vcard-viewer"
+name = "vCard Viewer"
+version = "1.0.0"
+type = "viewer"
+description = "Viewer plugin for .vcf vCard contact files"
+mime_types = ["text/vcard"]
+modes = ["text"]
+
+[location]
+kind = "local"
+path = "assets/plugins/vcard_viewer"
+
+[extra]
+author = "kkc community"
+license = "MIT"
