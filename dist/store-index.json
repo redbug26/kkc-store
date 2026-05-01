@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-01T13:35:33.278434+00:00",
+  "generated_at": "2026-05-01T14:18:35.766588+00:00",
   "source_repo": "https://github.com/redbug26/kkc-plugins",
   "plugins_count": 5,
   "plugins": [
@@ -372,6 +372,14 @@
           "method": "manual",
           "url": "https://github.com/mywave82/opencubicplayer/releases/latest",
           "bin": "ocp"
+        },
+        {
+          "os": [
+            "macos"
+          ],
+          "method": "brew",
+          "package": "ocp",
+          "bin": "ocp-curses"
         }
       ],
       "descriptor": "applications/opencubicplayer/apps.toml",
@@ -382,5 +390,5 @@
       }
     }
   ],
-  "tag": "0.0.7"
+  "tag": "0.0.8"
 }
