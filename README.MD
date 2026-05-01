@@ -7,6 +7,12 @@ Community plugin and application store for **kkc**.
 
 This repository may not contain every plugin binary or application package directly. Instead, it stores **plugin descriptors** and **application descriptors**, then generates a compiled **store index** (`dist/store-index.json`) that kkc can read to list and install plugins or applications.
 
+## Contributions
+
+Contributions are welcome. New plugins and applications can be proposed through pull requests; see [ADDING_TO_STORE.md](ADDING_TO_STORE.md) for the descriptor format and contribution workflow.
+
+Applications listed in this store must be usable from a terminal/TUI context. They should open or run directly in the terminal so kkc TUI can launch them as external viewers, editors, or tools.
+
 ## Repository layout
 
 ```text

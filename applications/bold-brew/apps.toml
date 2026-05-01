@@ -1,0 +1,29 @@
+[application]
+id = "bold-brew"
+name = "Bold Brew"
+version = "2.2.1"
+description = "Terminal UI for managing Homebrew packages and casks."
+category = "system"
+
+[[install]]
+os = ["macos", "linux"]
+method = "brew"
+package = "Valkyrie00/homebrew-bbrew/bbrew"
+bin = "bbrew"
+
+[[install]]
+os = ["macos", "linux"]
+method = "script"
+command = "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Valkyrie00/bold-brew/main/install.sh)\""
+bin = "bbrew"
+
+[[install]]
+os = ["macos", "linux"]
+method = "manual"
+url = "https://github.com/Valkyrie00/bold-brew/releases/latest"
+bin = "bbrew"
+
+[extra]
+homepage = "https://bold-brew.com/"
+repository = "https://github.com/Valkyrie00/bold-brew"
+license = "MIT"

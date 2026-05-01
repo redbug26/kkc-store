@@ -1,0 +1,31 @@
+[application]
+id = "tuimodplayer"
+name = "TUI Mod Player"
+version = "0.1.0"
+description = "Text-based module music player using libopenmpt."
+category = "media"
+type = "external_viewer"
+mime_types = [
+  "audio/x-mod",
+  "audio/x-xm",
+  "audio/x-s3m",
+  "audio/x-it",
+  "audio/x-mptm"
+]
+
+[[install]]
+os = ["linux", "macos"]
+method = "script"
+command = "cargo install --git https://github.com/wks/tuimodplayer.git"
+bin = "tuimodplayer"
+
+[[install]]
+os = ["linux", "macos"]
+method = "manual"
+url = "https://github.com/wks/tuimodplayer"
+bin = "tuimodplayer"
+
+[extra]
+repository = "https://github.com/wks/tuimodplayer"
+license = "GPL-3.0"
+notes = "Requires libopenmpt to build and run."

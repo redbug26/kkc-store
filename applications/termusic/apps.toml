@@ -1,0 +1,51 @@
+[application]
+id = "termusic"
+name = "termusic"
+version = "0.12.1"
+description = "Terminal music and podcast player written in Rust."
+category = "media"
+type = "external_viewer"
+mime_types = [
+  "audio/aac",
+  "audio/aiff",
+  "audio/flac",
+  "audio/mpeg",
+  "audio/mp4",
+  "audio/ogg",
+  "audio/opus",
+  "audio/wav",
+  "audio/webm",
+  "video/webm",
+  "video/x-matroska"
+]
+
+[[install]]
+os = ["linux", "macos", "windows"]
+method = "cargo"
+crate = "termusic"
+args = ["termusic-server", "--locked"]
+bin = "termusic"
+
+[[install]]
+os = ["macos", "linux"]
+method = "brew"
+package = "termusic"
+bin = "termusic"
+
+[[install]]
+os = "arch"
+method = "pacman"
+package = "termusic"
+bin = "termusic"
+
+[[install]]
+os = ["linux", "macos", "windows"]
+method = "manual"
+url = "https://github.com/tramhao/termusic/releases/latest"
+bin = "termusic"
+
+[extra]
+homepage = "https://github.com/tramhao/termusic"
+repository = "https://github.com/tramhao/termusic"
+license = "MIT AND GPL-3.0-or-later"
+notes = "The cargo install command also installs termusic-server."

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-01T14:18:35.766588+00:00",
+  "generated_at": "2026-05-01T14:40:42.347798+00:00",
   "source_repo": "https://github.com/redbug26/kkc-plugins",
   "plugins_count": 5,
   "plugins": [
@@ -118,7 +118,7 @@
       }
     }
   ],
-  "applications_count": 5,
+  "applications_count": 8,
   "applications": [
     {
       "id": "bat",
@@ -164,6 +164,50 @@
       "extra": {
         "homepage": "https://github.com/sharkdp/bat",
         "license": "Apache-2.0 OR MIT"
+      }
+    },
+    {
+      "id": "bold-brew",
+      "name": "Bold Brew",
+      "version": "2.2.1",
+      "description": "Terminal UI for managing Homebrew packages and casks.",
+      "category": "system",
+      "type": null,
+      "mime_types": [],
+      "install": [
+        {
+          "os": [
+            "macos",
+            "linux"
+          ],
+          "method": "brew",
+          "package": "Valkyrie00/homebrew-bbrew/bbrew",
+          "bin": "bbrew"
+        },
+        {
+          "os": [
+            "macos",
+            "linux"
+          ],
+          "method": "script",
+          "command": "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Valkyrie00/bold-brew/main/install.sh)\"",
+          "bin": "bbrew"
+        },
+        {
+          "os": [
+            "macos",
+            "linux"
+          ],
+          "method": "manual",
+          "url": "https://github.com/Valkyrie00/bold-brew/releases/latest",
+          "bin": "bbrew"
+        }
+      ],
+      "descriptor": "applications/bold-brew/apps.toml",
+      "extra": {
+        "homepage": "https://bold-brew.com/",
+        "repository": "https://github.com/Valkyrie00/bold-brew",
+        "license": "MIT"
       }
     },
     {
@@ -387,6 +431,118 @@
         "homepage": "https://stian.cubic.org/project-ocp.php",
         "repository": "https://github.com/mywave82/opencubicplayer",
         "license": "GPL-2.0-or-later"
+      }
+    },
+    {
+      "id": "termusic",
+      "name": "termusic",
+      "version": "0.12.1",
+      "description": "Terminal music and podcast player written in Rust.",
+      "category": "media",
+      "type": "external_viewer",
+      "mime_types": [
+        "audio/aac",
+        "audio/aiff",
+        "audio/flac",
+        "audio/mpeg",
+        "audio/mp4",
+        "audio/ogg",
+        "audio/opus",
+        "audio/wav",
+        "audio/webm",
+        "video/webm",
+        "video/x-matroska"
+      ],
+      "install": [
+        {
+          "os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "method": "cargo",
+          "crate": "termusic",
+          "bin": "termusic",
+          "args": [
+            "termusic-server",
+            "--locked"
+          ]
+        },
+        {
+          "os": [
+            "macos",
+            "linux"
+          ],
+          "method": "brew",
+          "package": "termusic",
+          "bin": "termusic"
+        },
+        {
+          "os": [
+            "arch"
+          ],
+          "method": "pacman",
+          "package": "termusic",
+          "bin": "termusic"
+        },
+        {
+          "os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "method": "manual",
+          "url": "https://github.com/tramhao/termusic/releases/latest",
+          "bin": "termusic"
+        }
+      ],
+      "descriptor": "applications/termusic/apps.toml",
+      "extra": {
+        "homepage": "https://github.com/tramhao/termusic",
+        "repository": "https://github.com/tramhao/termusic",
+        "license": "MIT AND GPL-3.0-or-later",
+        "notes": "The cargo install command also installs termusic-server."
+      }
+    },
+    {
+      "id": "tuimodplayer",
+      "name": "TUI Mod Player",
+      "version": "0.1.0",
+      "description": "Text-based module music player using libopenmpt.",
+      "category": "media",
+      "type": "external_viewer",
+      "mime_types": [
+        "audio/x-mod",
+        "audio/x-xm",
+        "audio/x-s3m",
+        "audio/x-it",
+        "audio/x-mptm"
+      ],
+      "install": [
+        {
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "method": "script",
+          "command": "cargo install --git https://github.com/wks/tuimodplayer.git",
+          "bin": "tuimodplayer"
+        },
+        {
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "method": "manual",
+          "url": "https://github.com/wks/tuimodplayer",
+          "bin": "tuimodplayer"
+        }
+      ],
+      "descriptor": "applications/tuimodplayer/apps.toml",
+      "extra": {
+        "repository": "https://github.com/wks/tuimodplayer",
+        "license": "GPL-3.0",
+        "notes": "Requires libopenmpt to build and run."
       }
     }
   ],
