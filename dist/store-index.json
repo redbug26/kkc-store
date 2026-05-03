@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-03T10:28:04.666813+00:00",
+  "generated_at": "2026-05-03T10:32:56.214257+00:00",
   "source_repo": "https://github.com/redbug26/kkc-plugins",
-  "plugins_count": 6,
+  "plugins_count": 7,
   "plugins": [
     {
       "id": "amsdos-viewer",
@@ -114,6 +114,27 @@
       "extra": {
         "author": "community",
         "license": "MIT"
+      }
+    },
+    {
+      "id": "onedrive",
+      "name": "OneDrive",
+      "version": "0.1.7",
+      "type": "remote-rust",
+      "description": "OneDrive remote filesystem plugin for kkc-rust",
+      "mime_types": [],
+      "modes": [],
+      "location": {
+        "kind": "github",
+        "repo": "redbug26/kkc-plugins-rust",
+        "ref": "main",
+        "asset_url": "https://github.com/redbug26/kkc-plugins-rust/releases/download/{tag}/onedrive-{os}-{arch}.zip"
+      },
+      "descriptor": "plugins/onedrive/plugin.toml",
+      "extra": {
+        "author": "kkc",
+        "license": "MIT",
+        "runtime": "rust/abi_stable"
       }
     },
     {
