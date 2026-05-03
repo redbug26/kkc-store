@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-03T10:33:07.326055+00:00",
+  "generated_at": "2026-05-03T11:14:32.709843+00:00",
   "source_repo": "https://github.com/redbug26/kkc-plugins",
   "plugins_count": 7,
   "plugins": [
@@ -73,7 +73,7 @@
     {
       "id": "dropbox",
       "name": "Dropbox",
-      "version": "0.1.7",
+      "version": "0.1.9",
       "type": "remote-rust",
       "description": "Dropbox remote filesystem plugin for kkc-rust",
       "mime_types": [],
@@ -119,7 +119,7 @@
     {
       "id": "onedrive",
       "name": "OneDrive",
-      "version": "0.1.7",
+      "version": "0.1.9",
       "type": "remote-rust",
       "description": "OneDrive remote filesystem plugin for kkc-rust",
       "mime_types": [],
