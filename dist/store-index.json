@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-03T08:35:35.705527+00:00",
+  "generated_at": "2026-05-03T09:27:47.300491+00:00",
   "source_repo": "https://github.com/redbug26/kkc-plugins",
   "plugins_count": 6,
   "plugins": [
@@ -73,7 +73,7 @@
     {
       "id": "dropbox",
       "name": "Dropbox",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "type": "remote-rust",
       "description": "Dropbox remote filesystem plugin for kkc-rust",
       "mime_types": [],
@@ -82,7 +82,7 @@
         "kind": "github",
         "repo": "redbug26/kkc-plugins-rust",
         "ref": "main",
-        "path": "/plugins/dropbox"
+        "asset_url": "https://github.com/redbug26/kkc-plugins-rust/releases/download/{tag}/dropbox-{os}-{arch}.zip"
       },
       "descriptor": "plugins/dropbox/plugin.toml",
       "extra": {
