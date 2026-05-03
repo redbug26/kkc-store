@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-02T19:12:36.308331+00:00",
+  "generated_at": "2026-05-03T08:35:35.705527+00:00",
   "source_repo": "https://github.com/redbug26/kkc-plugins",
   "plugins_count": 6,
   "plugins": [
@@ -79,8 +79,10 @@
       "mime_types": [],
       "modes": [],
       "location": {
-        "kind": "local",
-        "path": "/plugins/dropbox/assets"
+        "kind": "github",
+        "repo": "redbug26/kkc-plugins-rust",
+        "ref": "main",
+        "path": "/plugins/dropbox"
       },
       "descriptor": "plugins/dropbox/plugin.toml",
       "extra": {

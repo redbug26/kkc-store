@@ -6,8 +6,10 @@ type = "remote-rust"
 description = "Dropbox remote filesystem plugin for kkc-rust"
 
 [location]
-kind = "local"
-path = "assets"
+kind = "github"
+repo = "redbug26/kkc-plugins-rust"
+ref = "main"
+path = "/plugins/dropbox"
 
 [extra]
 author = "kkc"
