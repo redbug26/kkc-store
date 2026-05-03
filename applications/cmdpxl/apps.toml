@@ -1,0 +1,19 @@
+[application]
+id = "cmdpxl"
+name = "cmdpxl"
+version = "0.1.8"
+description = "Terminal command-line pixel image editor."
+category = "editor"
+type = "external_editor"
+mime_types = ["image/png"]
+
+[[install]]
+os = ["linux", "macos", "windows"]
+method = "script"
+command = "pip install cmdpxl"
+bin = "cmdpxl"
+
+[extra]
+homepage = "https://github.com/knosmos/cmdpxl"
+repository = "https://github.com/knosmos/cmdpxl"
+license = "MIT"

@@ -1,0 +1,26 @@
+[application]
+id = "fancy-cat"
+name = "fancy-cat"
+version = "0.5.0"
+description = "Terminal PDF viewer using the Kitty image protocol."
+category = "viewer"
+type = "external_viewer"
+mime_types = ["application/pdf"]
+
+[[install]]
+os = ["linux", "macos"]
+method = "manual"
+command = "git clone https://github.com/freref/fancy-cat.git && cd fancy-cat && git submodule update --init --recursive && zig build --release=small"
+bin = "fancy-cat"
+
+[[install]]
+os = ["linux", "macos", "windows"]
+method = "manual"
+url = "https://github.com/freref/fancy-cat/tags"
+bin = "fancy-cat"
+
+[extra]
+homepage = "https://github.com/freref/fancy-cat"
+repository = "https://github.com/freref/fancy-cat"
+license = "AGPL-3.0-or-later"
+notes = "Requires Zig 0.15.2 and a terminal emulator with the Kitty image protocol."

@@ -1,0 +1,32 @@
+[application]
+id = "gorae"
+name = "Gorae"
+version = "2.1.0"
+description = "Terminal-first TUI knowledge base for PDFs, EPUBs, and Markdown."
+category = "viewer"
+type = "external_viewer"
+mime_types = ["application/pdf", "application/epub+zip", "text/markdown"]
+
+[[install]]
+os = "arch"
+method = "script"
+command = "yay -S gorae"
+bin = "gorae"
+
+[[install]]
+os = ["linux", "macos", "windows"]
+method = "manual"
+url = "https://github.com/Han8931/gorae/releases/latest"
+bin = "gorae"
+
+[[install]]
+os = ["linux", "macos"]
+method = "script"
+command = "git clone https://github.com/Han8931/gorae.git && cd gorae && ./install.sh"
+bin = "gorae"
+
+[extra]
+homepage = "https://github.com/Han8931/gorae"
+repository = "https://github.com/Han8931/gorae"
+license = "MIT"
+notes = "Requires Go 1.21+ and Poppler CLI tools when building from source; chafa is optional for fallback previews."

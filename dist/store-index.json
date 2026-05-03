@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-03T12:53:53.332458+00:00",
+  "generated_at": "2026-05-03T18:01:10.843314+00:00",
   "source_repo": "https://github.com/redbug26/kkc-store",
   "plugins_count": 7,
   "plugins": [
@@ -160,7 +160,7 @@
       }
     }
   ],
-  "applications_count": 9,
+  "applications_count": 13,
   "applications": [
     {
       "id": "bat",
@@ -302,6 +302,126 @@
         "homepage": "https://bugzmanov.github.io/bookokrat/",
         "repository": "https://github.com/bugzmanov/bookokrat",
         "license": "MIT"
+      }
+    },
+    {
+      "id": "cmdpxl",
+      "name": "cmdpxl",
+      "version": "0.1.8",
+      "description": "Terminal command-line pixel image editor.",
+      "category": "editor",
+      "type": "external_editor",
+      "wait_for_key_after_exit": false,
+      "mime_types": [
+        "image/png"
+      ],
+      "install": [
+        {
+          "os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "method": "script",
+          "command": "pip install cmdpxl",
+          "bin": "cmdpxl"
+        }
+      ],
+      "descriptor": "applications/cmdpxl/apps.toml",
+      "extra": {
+        "homepage": "https://github.com/knosmos/cmdpxl",
+        "repository": "https://github.com/knosmos/cmdpxl",
+        "license": "MIT"
+      }
+    },
+    {
+      "id": "fancy-cat",
+      "name": "fancy-cat",
+      "version": "0.5.0",
+      "description": "Terminal PDF viewer using the Kitty image protocol.",
+      "category": "viewer",
+      "type": "external_viewer",
+      "wait_for_key_after_exit": false,
+      "mime_types": [
+        "application/pdf"
+      ],
+      "install": [
+        {
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "method": "manual",
+          "command": "git clone https://github.com/freref/fancy-cat.git && cd fancy-cat && git submodule update --init --recursive && zig build --release=small",
+          "bin": "fancy-cat"
+        },
+        {
+          "os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "method": "manual",
+          "url": "https://github.com/freref/fancy-cat/tags",
+          "bin": "fancy-cat"
+        }
+      ],
+      "descriptor": "applications/fancy-cat/apps.toml",
+      "extra": {
+        "homepage": "https://github.com/freref/fancy-cat",
+        "repository": "https://github.com/freref/fancy-cat",
+        "license": "AGPL-3.0-or-later",
+        "notes": "Requires Zig 0.15.2 and a terminal emulator with the Kitty image protocol."
+      }
+    },
+    {
+      "id": "gorae",
+      "name": "Gorae",
+      "version": "2.1.0",
+      "description": "Terminal-first TUI knowledge base for PDFs, EPUBs, and Markdown.",
+      "category": "viewer",
+      "type": "external_viewer",
+      "wait_for_key_after_exit": false,
+      "mime_types": [
+        "application/pdf",
+        "application/epub+zip",
+        "text/markdown"
+      ],
+      "install": [
+        {
+          "os": [
+            "arch"
+          ],
+          "method": "script",
+          "command": "yay -S gorae",
+          "bin": "gorae"
+        },
+        {
+          "os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "method": "manual",
+          "url": "https://github.com/Han8931/gorae/releases/latest",
+          "bin": "gorae"
+        },
+        {
+          "os": [
+            "linux",
+            "macos"
+          ],
+          "method": "script",
+          "command": "git clone https://github.com/Han8931/gorae.git && cd gorae && ./install.sh",
+          "bin": "gorae"
+        }
+      ],
+      "descriptor": "applications/gorae/apps.toml",
+      "extra": {
+        "homepage": "https://github.com/Han8931/gorae",
+        "repository": "https://github.com/Han8931/gorae",
+        "license": "MIT",
+        "notes": "Requires Go 1.21+ and Poppler CLI tools when building from source; chafa is optional for fallback previews."
       }
     },
     {
@@ -621,6 +741,72 @@
         "repository": "https://github.com/tramhao/termusic",
         "license": "MIT AND GPL-3.0-or-later",
         "notes": "The cargo install command also installs termusic-server."
+      }
+    },
+    {
+      "id": "timg",
+      "name": "timg",
+      "version": "1.6.3",
+      "description": "Terminal image and video viewer with sixel, Kitty, iTerm2 and block rendering.",
+      "category": "viewer",
+      "type": "external_viewer",
+      "wait_for_key_after_exit": true,
+      "mime_types": [
+        "image/bmp",
+        "image/gif",
+        "image/jpeg",
+        "image/png",
+        "image/svg+xml",
+        "image/tiff",
+        "image/webp",
+        "application/pdf",
+        "video/mp4",
+        "video/mpeg",
+        "video/quicktime",
+        "video/webm"
+      ],
+      "install": [
+        {
+          "os": [
+            "macos"
+          ],
+          "method": "brew",
+          "package": "timg",
+          "bin": "timg"
+        },
+        {
+          "os": [
+            "debian",
+            "ubuntu"
+          ],
+          "method": "apt",
+          "package": "timg",
+          "bin": "timg"
+        },
+        {
+          "os": [
+            "fedora",
+            "rhel"
+          ],
+          "method": "dnf",
+          "package": "timg",
+          "bin": "timg"
+        },
+        {
+          "os": [
+            "linux"
+          ],
+          "method": "manual",
+          "url": "https://github.com/hzeller/timg/releases/latest",
+          "bin": "timg"
+        }
+      ],
+      "descriptor": "applications/timg/apps.toml",
+      "extra": {
+        "homepage": "https://timg.sh/",
+        "repository": "https://github.com/hzeller/timg",
+        "license": "GPL-2.0",
+        "notes": "Full PDF, SVG and video support depends on distro package build options or source build dependencies."
       }
     },
     {

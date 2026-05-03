@@ -1,0 +1,52 @@
+[application]
+id = "timg"
+name = "timg"
+version = "1.6.3"
+description = "Terminal image and video viewer with sixel, Kitty, iTerm2 and block rendering."
+category = "viewer"
+type = "external_viewer"
+wait_for_key_after_exit = true
+mime_types = [
+  "image/bmp",
+  "image/gif",
+  "image/jpeg",
+  "image/png",
+  "image/svg+xml",
+  "image/tiff",
+  "image/webp",
+  "application/pdf",
+  "video/mp4",
+  "video/mpeg",
+  "video/quicktime",
+  "video/webm"
+]
+
+[[install]]
+os = "macos"
+method = "brew"
+package = "timg"
+bin = "timg"
+
+[[install]]
+os = ["debian", "ubuntu"]
+method = "apt"
+package = "timg"
+bin = "timg"
+
+[[install]]
+os = ["fedora", "rhel"]
+method = "dnf"
+package = "timg"
+bin = "timg"
+
+[[install]]
+os = "linux"
+method = "manual"
+url = "https://github.com/hzeller/timg/releases/latest"
+bin = "timg"
+
+[extra]
+homepage = "https://timg.sh/"
+repository = "https://github.com/hzeller/timg"
+license = "GPL-2.0"
+notes = "Full PDF, SVG and video support depends on distro package build options or source build dependencies."
