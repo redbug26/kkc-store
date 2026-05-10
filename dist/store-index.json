@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-10T13:34:43.276123+00:00",
+  "generated_at": "2026-05-10T13:34:55.866716+00:00",
   "source_repo": "https://github.com/redbug26/kkc-store",
   "plugins_count": 7,
   "plugins": [
@@ -880,5 +880,5 @@
       }
     }
   ],
-  "tag": "0.0.22"
+  "tag": "0.0.23"
 }
