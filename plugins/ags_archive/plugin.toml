@@ -1,0 +1,11 @@
+[plugin]
+id = "ags_archive"
+name = "ags_archive"
+version = "1.0.0"
+type = "archive"
+description = "Pure Lua Adventure Game Studio archive plugin"
+mime_types = ["application/x-ags-archive"]
+
+[location]
+kind = "local"
+path = "."
