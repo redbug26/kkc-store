@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-10T13:34:55.866716+00:00",
+  "generated_at": "2026-05-10T16:50:05.359502+00:00",
   "source_repo": "https://github.com/redbug26/kkc-store",
-  "plugins_count": 7,
+  "plugins_count": 8,
   "plugins": [
     {
       "id": "amsdos-viewer",
@@ -158,6 +158,24 @@
         "author": "kkc community",
         "license": "MIT"
       }
+    },
+    {
+      "id": "wbc-webshots",
+      "name": "Webshots parser",
+      "version": "1.0.0",
+      "type": "archive",
+      "description": "Open Webshots picture files (.wbc/.wb1/.wbz/.wbd/.wbp)",
+      "mime_types": [
+        "image/x-webshots",
+        "application/x-webshots"
+      ],
+      "modes": [],
+      "location": {
+        "kind": "local",
+        "path": "/plugins/wbc_webshots"
+      },
+      "descriptor": "plugins/wbc_webshots/plugin.toml",
+      "extra": {}
     }
   ],
   "applications_count": 14,

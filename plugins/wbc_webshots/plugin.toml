@@ -1,0 +1,11 @@
+[plugin]
+id = "wbc-webshots"
+name = "Webshots parser"
+version = "1.0.0"
+type = "archive"
+description = "Open Webshots picture files (.wbc/.wb1/.wbz/.wbd/.wbp)"
+mime_types = ["image/x-webshots", "application/x-webshots"]
+
+[location]
+kind = "local"
+path = "."
