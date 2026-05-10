@@ -223,12 +223,14 @@ def validate_application(desc: dict, descriptor_path: Path, repo_root: Path) -> 
     for key, val in {
         "application.id": aid,
         "application.name": name,
-        "application.version": version,
         "application.description": description,
         "application.category": category,
     }.items():
         if not isinstance(val, str) or not val.strip():
             fail(f"{key} must be a non-empty string")
+
+    if version is not None and (not isinstance(version, str) or not version.strip()):
+        fail("application.version must be a non-empty string when present")
 
     if category not in ALLOWED_APPLICATION_CATEGORIES:
         fail(f"application.category must be one of {sorted(ALLOWED_APPLICATION_CATEGORIES)}")

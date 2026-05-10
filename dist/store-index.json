@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-03T18:01:22.191015+00:00",
+  "generated_at": "2026-05-10T13:31:27.233019+00:00",
   "source_repo": "https://github.com/redbug26/kkc-store",
   "plugins_count": 7,
   "plugins": [
@@ -160,7 +160,7 @@
       }
     }
   ],
-  "applications_count": 13,
+  "applications_count": 14,
   "applications": [
     {
       "id": "bat",
@@ -644,7 +644,7 @@
           ],
           "method": "apt",
           "package": "opencubicplayer",
-          "bin": "ocp"
+          "bin": "ocp-curses"
         },
         {
           "os": [
@@ -653,7 +653,7 @@
           ],
           "method": "manual",
           "url": "https://github.com/mywave82/opencubicplayer/releases/latest",
-          "bin": "ocp"
+          "bin": "ocp-curses"
         },
         {
           "os": [
@@ -807,6 +807,44 @@
         "repository": "https://github.com/hzeller/timg",
         "license": "GPL-2.0",
         "notes": "Full PDF, SVG and video support depends on distro package build options or source build dependencies."
+      }
+    },
+    {
+      "id": "ttymap",
+      "name": "ttymap",
+      "version": null,
+      "description": "Terminal-native scriptable globe. Mapbox Vector Tiles rendered as Unicode Braille with ANSI 256-color, with Lua plugin runtime for real-time data overlays and animated camera tours.",
+      "category": "viewer",
+      "type": "external_viewer",
+      "wait_for_key_after_exit": false,
+      "mime_types": [],
+      "install": [
+        {
+          "os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "method": "cargo",
+          "crate": "ttymap",
+          "bin": "ttymap"
+        },
+        {
+          "os": [
+            "linux",
+            "macos",
+            "windows"
+          ],
+          "method": "manual",
+          "url": "https://github.com/Kohei-Wada/ttymap/releases/latest",
+          "bin": "ttymap"
+        }
+      ],
+      "descriptor": "applications/ttymap/apps.toml",
+      "extra": {
+        "homepage": "https://github.com/Kohei-Wada/ttymap",
+        "repository": "https://github.com/Kohei-Wada/ttymap",
+        "license": "Apache-2.0 OR MIT"
       }
     },
     {

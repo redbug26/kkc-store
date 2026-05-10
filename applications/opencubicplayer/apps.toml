@@ -21,13 +21,13 @@ mime_types = [
 os = ["debian", "ubuntu"]
 method = "apt"
 package = "opencubicplayer"
-bin = "ocp"
+bin = "ocp-curses"
 
 [[install]]
 os = ["linux", "windows"]
 method = "manual"
 url = "https://github.com/mywave82/opencubicplayer/releases/latest"
-bin = "ocp"
+bin = "ocp-curses"
 
 [[install]]
 os = "macos"

@@ -1,0 +1,23 @@
+[application]
+id = "ttymap"
+name = "ttymap"
+description = "Terminal-native scriptable globe. Mapbox Vector Tiles rendered as Unicode Braille with ANSI 256-color, with Lua plugin runtime for real-time data overlays and animated camera tours."
+category = "viewer"
+type = "external_viewer"
+
+[[install]]
+os = ["linux", "macos", "windows"]
+method = "cargo"
+crate = "ttymap"
+bin = "ttymap"
+
+[[install]]
+os = ["linux", "macos", "windows"]
+method = "manual"
+url = "https://github.com/Kohei-Wada/ttymap/releases/latest"
+bin = "ttymap"
+
+[extra]
+homepage = "https://github.com/Kohei-Wada/ttymap"
+repository = "https://github.com/Kohei-Wada/ttymap"
+license = "Apache-2.0 OR MIT"
