@@ -1,0 +1,20 @@
+[application]
+id = "my_lua_app"
+name = "My Lua App"
+version = "0.1.0"
+description = "Starter template for KKC Lua applications"
+category = "development"
+
+[runtime]
+main = "src/app.lua"
+fps = 30
+
+[[install]]
+os = ["macos", "linux", "windows"]
+method = "manual"
+url = "https://github.com/redbug26/kkc-store/tree/main/applications/template_lua_app"
+command = "Copy the complete template_lua_app directory into the KKC data applications directory as my_lua_app, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:my_lua_app %f. Requires KKC with Lua application support."
+
+[extra]
+homepage = "https://github.com/redbug26/kkc-store/tree/main/applications/template_lua_app"
+notes = "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."

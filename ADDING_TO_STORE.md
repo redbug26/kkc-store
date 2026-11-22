@@ -137,6 +137,13 @@ Optional fields in `[application]`:
 - `type`: `external_viewer` or `external_editor`. Omit this field if the application is not tied to a specific role.
 - `wait_for_key_after_exit`: boolean, defaults to `false`. Set to `true` for applications that render output and then return to the system immediately, so kkc can show a “Press a key to continue” prompt after execution.
 
+Optional fields in the `[runtime]` section for Lua applications:
+
+- `main`: Lua entrypoint path relative to the application directory.
+- `fps`, `width`, `height`: positive integers for Lua runtime frame rate and terminal dimensions. These settings are preserved in a nested `runtime` object in the store index when present.
+
+Lua applications keep their metadata and runtime settings in `apps.toml`. The current KKC Lua runtime still reads `app.toml`: manual installation must generate an `[app]` table from `id`, `name`, `version`, `description` in `[application]` and the available `main`, `fps`, `width`, `height` fields in `[runtime]`.
+
 Each application must define at least one `[[install]]` table.
 
 Required fields in `[[install]]`:

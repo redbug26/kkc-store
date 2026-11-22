@@ -1,0 +1,22 @@
+[application]
+id = "git_repo"
+name = "Git Repo"
+version = "0.1.0"
+description = "Git status/stage/unstage/commit/push/pull for current panel repository"
+category = "development"
+
+[runtime]
+main = "app.lua"
+fps = 15
+width = 96
+height = 30
+
+[[install]]
+os = ["macos", "linux", "windows"]
+method = "manual"
+url = "https://github.com/redbug26/kkc-store/tree/main/applications/git_repo"
+command = "Copy the complete git_repo directory into the KKC data applications directory as git_repo, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:git_repo %f. Requires KKC with Lua application support."
+
+[extra]
+homepage = "https://github.com/redbug26/kkc-store/tree/main/applications/git_repo"
+notes = "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."

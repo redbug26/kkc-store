@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-10T20:10:08.667337+00:00",
+  "generated_at": "2026-11-22T08:38:57.187511+00:00",
   "source_repo": "https://github.com/redbug26/kkc-store",
-  "plugins_count": 12,
+  "plugins_count": 16,
   "plugins": [
     {
       "id": "ags_archive",
@@ -84,6 +84,31 @@
       }
     },
     {
+      "id": "ayt",
+      "name": "AYT Decoder",
+      "version": "0.1.0",
+      "type": "viewer",
+      "description": "AYT decoder plugin for kkc-rust audio-rust ABI (plugin streams PCM + monitor/text/progress metadata)",
+      "mime_types": [
+        "audio/x-ayt"
+      ],
+      "modes": [
+        "text"
+      ],
+      "location": {
+        "kind": "github",
+        "repo": "redbug26/kkc-plugins-rust",
+        "ref": "main",
+        "asset_url": "https://github.com/redbug26/kkc-plugins-rust/releases/download/{tag}/ayt-{os}-{arch}.zip"
+      },
+      "descriptor": "plugins/ayt/plugin.toml",
+      "extra": {
+        "author": "kkc",
+        "license": "MIT",
+        "runtime": "rust/abi_stable"
+      }
+    },
+    {
       "id": "commodore-d64-directory",
       "name": "commodore_d64_directory",
       "version": "1.0.0",
@@ -127,6 +152,31 @@
       }
     },
     {
+      "id": "flac",
+      "name": "FLAC Decoder",
+      "version": "0.1.0",
+      "type": "viewer",
+      "description": "FLAC decoder plugin for kkc-rust audio-rust ABI",
+      "mime_types": [
+        "audio/flac"
+      ],
+      "modes": [
+        "text"
+      ],
+      "location": {
+        "kind": "github",
+        "repo": "redbug26/kkc-plugins-rust",
+        "ref": "main",
+        "asset_url": "https://github.com/redbug26/kkc-plugins-rust/releases/download/{tag}/flac-{os}-{arch}.zip"
+      },
+      "descriptor": "plugins/flac/plugin.toml",
+      "extra": {
+        "author": "kkc",
+        "license": "MIT",
+        "runtime": "rust/abi_stable"
+      }
+    },
+    {
       "id": "json-viewer",
       "name": "JSON Viewer",
       "version": "1.2.0",
@@ -149,6 +199,31 @@
       "extra": {
         "author": "community",
         "license": "MIT"
+      }
+    },
+    {
+      "id": "mp3",
+      "name": "MP3 Decoder",
+      "version": "0.1.0",
+      "type": "viewer",
+      "description": "MP3 decoder plugin for kkc-rust audio-rust ABI",
+      "mime_types": [
+        "audio/mpeg"
+      ],
+      "modes": [
+        "text"
+      ],
+      "location": {
+        "kind": "github",
+        "repo": "redbug26/kkc-plugins-rust",
+        "ref": "main",
+        "asset_url": "https://github.com/redbug26/kkc-plugins-rust/releases/download/{tag}/mp3-{os}-{arch}.zip"
+      },
+      "descriptor": "plugins/mp3/plugin.toml",
+      "extra": {
+        "author": "kkc",
+        "license": "MIT",
+        "runtime": "rust/abi_stable"
       }
     },
     {
@@ -245,10 +320,69 @@
       },
       "descriptor": "plugins/wbc_webshots/plugin.toml",
       "extra": {}
+    },
+    {
+      "id": "ym",
+      "name": "YM Decoder",
+      "version": "0.1.0",
+      "type": "viewer",
+      "description": "YM5/YM6 decoder plugin for the kkc-rust audio-rust ABI (plugin streams PCM + tracker metadata)",
+      "mime_types": [
+        "audio/x-ym",
+        "audio/x-ym6"
+      ],
+      "modes": [
+        "text"
+      ],
+      "location": {
+        "kind": "github",
+        "repo": "redbug26/kkc-plugins-rust",
+        "ref": "main",
+        "asset_url": "https://github.com/redbug26/kkc-plugins-rust/releases/download/{tag}/ym-{os}-{arch}.zip"
+      },
+      "descriptor": "plugins/ym/plugin.toml",
+      "extra": {
+        "author": "kkc",
+        "license": "MIT",
+        "runtime": "rust/abi_stable"
+      }
     }
   ],
-  "applications_count": 14,
+  "applications_count": 22,
   "applications": [
+    {
+      "id": "ascii",
+      "name": "ASCII Table",
+      "version": "0.1.0",
+      "description": "ASCII chart explorer for terminal",
+      "category": "utility",
+      "type": null,
+      "wait_for_key_after_exit": false,
+      "mime_types": [],
+      "install": [
+        {
+          "os": [
+            "macos",
+            "linux",
+            "windows"
+          ],
+          "method": "manual",
+          "command": "Copy the complete ascii directory into the KKC data applications directory as ascii, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:ascii %f. Requires KKC with Lua application support.",
+          "url": "https://github.com/redbug26/kkc-store/tree/main/applications/ascii"
+        }
+      ],
+      "descriptor": "applications/ascii/apps.toml",
+      "extra": {
+        "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/ascii",
+        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+      },
+      "runtime": {
+        "main": "app.lua",
+        "fps": 15,
+        "width": 79,
+        "height": 24
+      }
+    },
     {
       "id": "bat",
       "name": "bat",
@@ -392,6 +526,72 @@
       }
     },
     {
+      "id": "calculator",
+      "name": "Calculator",
+      "version": "0.1.0",
+      "description": "Simple terminal calculator",
+      "category": "utility",
+      "type": null,
+      "wait_for_key_after_exit": false,
+      "mime_types": [],
+      "install": [
+        {
+          "os": [
+            "macos",
+            "linux",
+            "windows"
+          ],
+          "method": "manual",
+          "command": "Copy the complete calculator directory into the KKC data applications directory as calculator, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:calculator %f. Requires KKC with Lua application support.",
+          "url": "https://github.com/redbug26/kkc-store/tree/main/applications/calculator"
+        }
+      ],
+      "descriptor": "applications/calculator/apps.toml",
+      "extra": {
+        "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/calculator",
+        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+      },
+      "runtime": {
+        "main": "app.lua",
+        "fps": 20,
+        "width": 37,
+        "height": 24
+      }
+    },
+    {
+      "id": "calendar",
+      "name": "Calendar",
+      "version": "0.1.0",
+      "description": "Terminal monthly calendar",
+      "category": "utility",
+      "type": null,
+      "wait_for_key_after_exit": false,
+      "mime_types": [],
+      "install": [
+        {
+          "os": [
+            "macos",
+            "linux",
+            "windows"
+          ],
+          "method": "manual",
+          "command": "Copy the complete calendar directory into the KKC data applications directory as calendar, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:calendar %f. Requires KKC with Lua application support.",
+          "url": "https://github.com/redbug26/kkc-store/tree/main/applications/calendar"
+        }
+      ],
+      "descriptor": "applications/calendar/apps.toml",
+      "extra": {
+        "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/calendar",
+        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+      },
+      "runtime": {
+        "main": "app.lua",
+        "fps": 15,
+        "width": 28,
+        "height": 20
+      }
+    },
+    {
       "id": "cmdpxl",
       "name": "cmdpxl",
       "version": "0.1.8",
@@ -459,6 +659,39 @@
         "repository": "https://github.com/freref/fancy-cat",
         "license": "AGPL-3.0-or-later",
         "notes": "Requires Zig 0.15.2 and a terminal emulator with the Kitty image protocol."
+      }
+    },
+    {
+      "id": "git_repo",
+      "name": "Git Repo",
+      "version": "0.1.0",
+      "description": "Git status/stage/unstage/commit/push/pull for current panel repository",
+      "category": "development",
+      "type": null,
+      "wait_for_key_after_exit": false,
+      "mime_types": [],
+      "install": [
+        {
+          "os": [
+            "macos",
+            "linux",
+            "windows"
+          ],
+          "method": "manual",
+          "command": "Copy the complete git_repo directory into the KKC data applications directory as git_repo, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:git_repo %f. Requires KKC with Lua application support.",
+          "url": "https://github.com/redbug26/kkc-store/tree/main/applications/git_repo"
+        }
+      ],
+      "descriptor": "applications/git_repo/apps.toml",
+      "extra": {
+        "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/git_repo",
+        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+      },
+      "runtime": {
+        "main": "app.lua",
+        "fps": 15,
+        "width": 96,
+        "height": 30
       }
     },
     {
@@ -705,6 +938,37 @@
       }
     },
     {
+      "id": "my_lua_app",
+      "name": "My Lua App",
+      "version": "0.1.0",
+      "description": "Starter template for KKC Lua applications",
+      "category": "development",
+      "type": null,
+      "wait_for_key_after_exit": false,
+      "mime_types": [],
+      "install": [
+        {
+          "os": [
+            "macos",
+            "linux",
+            "windows"
+          ],
+          "method": "manual",
+          "command": "Copy the complete template_lua_app directory into the KKC data applications directory as my_lua_app, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:my_lua_app %f. Requires KKC with Lua application support.",
+          "url": "https://github.com/redbug26/kkc-store/tree/main/applications/template_lua_app"
+        }
+      ],
+      "descriptor": "applications/template_lua_app/apps.toml",
+      "extra": {
+        "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/template_lua_app",
+        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+      },
+      "runtime": {
+        "main": "src/app.lua",
+        "fps": 30
+      }
+    },
+    {
       "id": "opencubicplayer",
       "name": "Open Cubic Player",
       "version": "3.2.0",
@@ -756,6 +1020,71 @@
         "homepage": "https://stian.cubic.org/project-ocp.php",
         "repository": "https://github.com/mywave82/opencubicplayer",
         "license": "GPL-2.0-or-later"
+      }
+    },
+    {
+      "id": "rockland",
+      "name": "Rockland",
+      "version": "0.1.0",
+      "description": "Boulder-dash style cave game for KKC",
+      "category": "other",
+      "type": null,
+      "wait_for_key_after_exit": false,
+      "mime_types": [],
+      "install": [
+        {
+          "os": [
+            "macos",
+            "linux",
+            "windows"
+          ],
+          "method": "manual",
+          "command": "Copy the complete rockland directory into the KKC data applications directory as rockland, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:rockland %f. Requires KKC with Lua application support.",
+          "url": "https://github.com/redbug26/kkc-store/tree/main/applications/rockland"
+        }
+      ],
+      "descriptor": "applications/rockland/apps.toml",
+      "extra": {
+        "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/rockland",
+        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+      },
+      "runtime": {
+        "main": "app.lua",
+        "fps": 30,
+        "width": 96,
+        "height": 32
+      }
+    },
+    {
+      "id": "snake",
+      "name": "Snake",
+      "version": "1.0.0",
+      "description": "Classic Nokia-style Snake game",
+      "category": "other",
+      "type": null,
+      "wait_for_key_after_exit": false,
+      "mime_types": [],
+      "install": [
+        {
+          "os": [
+            "macos",
+            "linux",
+            "windows"
+          ],
+          "method": "manual",
+          "command": "Copy the complete snake directory into the KKC data applications directory as snake, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:snake %f. Requires KKC with Lua application support.",
+          "url": "https://github.com/redbug26/kkc-store/tree/main/applications/snake"
+        }
+      ],
+      "descriptor": "applications/snake/apps.toml",
+      "extra": {
+        "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/snake",
+        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+      },
+      "runtime": {
+        "fps": 10,
+        "width": 52,
+        "height": 24
       }
     },
     {
@@ -828,6 +1157,39 @@
         "repository": "https://github.com/tramhao/termusic",
         "license": "MIT AND GPL-3.0-or-later",
         "notes": "The cargo install command also installs termusic-server."
+      }
+    },
+    {
+      "id": "tetris",
+      "name": "Tetris",
+      "version": "0.1.0",
+      "description": "Terminal Tetris powered by KKC Lua app runtime",
+      "category": "other",
+      "type": null,
+      "wait_for_key_after_exit": false,
+      "mime_types": [],
+      "install": [
+        {
+          "os": [
+            "macos",
+            "linux",
+            "windows"
+          ],
+          "method": "manual",
+          "command": "Copy the complete tetris directory into the KKC data applications directory as tetris, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:tetris %f. Requires KKC with Lua application support.",
+          "url": "https://github.com/redbug26/kkc-store/tree/main/applications/tetris"
+        }
+      ],
+      "descriptor": "applications/tetris/apps.toml",
+      "extra": {
+        "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/tetris",
+        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+      },
+      "runtime": {
+        "main": "app.lua",
+        "fps": 20,
+        "width": 46,
+        "height": 26
       }
     },
     {

@@ -1,0 +1,21 @@
+[application]
+id = "snake"
+name = "Snake"
+version = "1.0.0"
+description = "Classic Nokia-style Snake game"
+category = "other"
+
+[runtime]
+fps = 10
+width = 52
+height = 24
+
+[[install]]
+os = ["macos", "linux", "windows"]
+method = "manual"
+url = "https://github.com/redbug26/kkc-store/tree/main/applications/snake"
+command = "Copy the complete snake directory into the KKC data applications directory as snake, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:snake %f. Requires KKC with Lua application support."
+
+[extra]
+homepage = "https://github.com/redbug26/kkc-store/tree/main/applications/snake"
+notes = "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."

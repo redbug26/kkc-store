@@ -1,0 +1,19 @@
+[plugin]
+id = "ayt"
+name = "AYT Decoder"
+version = "0.1.0"
+type = "viewer"
+description = "AYT decoder plugin for kkc-rust audio-rust ABI (plugin streams PCM + monitor/text/progress metadata)"
+mime_types = ["audio/x-ayt"]
+modes = ["text"]
+
+[location]
+kind = "github"
+repo = "redbug26/kkc-plugins-rust"
+ref = "main"
+asset_url = "https://github.com/redbug26/kkc-plugins-rust/releases/download/{tag}/ayt-{os}-{arch}.zip"
+
+[extra]
+author = "kkc"
+license = "MIT"
+runtime = "rust/abi_stable"

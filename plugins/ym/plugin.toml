@@ -1,0 +1,19 @@
+[plugin]
+id = "ym"
+name = "YM Decoder"
+version = "0.1.0"
+type = "viewer"
+description = "YM5/YM6 decoder plugin for the kkc-rust audio-rust ABI (plugin streams PCM + tracker metadata)"
+mime_types = ["audio/x-ym", "audio/x-ym6"]
+modes = ["text"]
+
+[location]
+kind = "github"
+repo = "redbug26/kkc-plugins-rust"
+ref = "main"
+asset_url = "https://github.com/redbug26/kkc-plugins-rust/releases/download/{tag}/ym-{os}-{arch}.zip"
+
+[extra]
+author = "kkc"
+license = "MIT"
+runtime = "rust/abi_stable"

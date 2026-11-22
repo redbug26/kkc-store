@@ -1,0 +1,19 @@
+[plugin]
+id = "mp3"
+name = "MP3 Decoder"
+version = "0.1.0"
+type = "viewer"
+description = "MP3 decoder plugin for kkc-rust audio-rust ABI"
+mime_types = ["audio/mpeg"]
+modes = ["text"]
+
+[location]
+kind = "github"
+repo = "redbug26/kkc-plugins-rust"
+ref = "main"
+asset_url = "https://github.com/redbug26/kkc-plugins-rust/releases/download/{tag}/mp3-{os}-{arch}.zip"
+
+[extra]
+author = "kkc"
+license = "MIT"
+runtime = "rust/abi_stable"

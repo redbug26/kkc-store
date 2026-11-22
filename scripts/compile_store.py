@@ -258,6 +258,22 @@ def validate_application(desc: dict, descriptor_path: Path, repo_root: Path) -> 
 
     rel_descriptor = descriptor_path.relative_to(repo_root).as_posix()
 
+    runtime_config = desc.get("runtime", {})
+    if not isinstance(runtime_config, dict):
+        fail("[runtime] must be a table when present")
+    runtime = {}
+    if "main" in runtime_config:
+        main = runtime_config["main"]
+        if not isinstance(main, str) or not main.strip():
+            fail("runtime.main must be a non-empty string")
+        runtime["main"] = main
+    for field in ("fps", "width", "height"):
+        if field in runtime_config:
+            value = runtime_config[field]
+            if type(value) is not int or value <= 0:
+                fail(f"runtime.{field} must be a positive integer")
+            runtime[field] = value
+
     return {
         "id": aid,
         "name": name,
@@ -270,6 +286,7 @@ def validate_application(desc: dict, descriptor_path: Path, repo_root: Path) -> 
         "install": install,
         "descriptor": rel_descriptor,
         "extra": extra or {},
+        **({"runtime": runtime} if "runtime" in desc else {}),
     }
 
 
