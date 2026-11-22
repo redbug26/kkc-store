@@ -318,3 +318,38 @@ formats; KKC tracker/native plugins are not bundled. Unsupported formats raise
 an error. `select_with_checks` accepts both historical `theme_name` values
 with the same beige appearance in this host. KKC and iPad hosts may provide
 additional codecs and platform dialog styles while retaining these signatures.
+
+## WebAssembly browser host
+
+The [kapsule-rust](https://github.com/redbug26/kapsule-rust) browser build uses
+Lua 5.4 through Emscripten and shares its manifest, module registration,
+application initialization, drawing buffer and key-state behavior with the
+native reference reader. Module names and signatures remain unchanged.
+
+- `HAS_RELEASE_EVENTS` is true. DOM `keydown` and `keyup` events drive held
+  keys; DOM repeat events drive `keypressed`. The host adds no synthetic
+  repeats. Losing focus clears held keys. Frames pause while the page is
+  hidden, and elapsed frame deltas are capped at 100 ms on resumption.
+- Graphics coordinates and browser mouse coordinates are both relative to the
+  canvas content and start at 1. The surrounding HTML frame is outside the
+  canvas. F5 switches between the fitted canvas and the manifest's requested
+  content dimensions, with two border cells subtracted as on native hosts.
+- `kkc-fs` reads and writes temporary MEMFS files. Imported files are copied
+  into this virtual filesystem; the original folder is never changed. The
+  current app directory is also `kkc.get_cwd()` / `kkc-shell.cwd()`. Data is
+  discarded on app replacement or page reload. Imports are limited to 64 MiB.
+- `kkc-shell.run` raises an explicit unsupported error. This also means Kapsules
+  requiring external programs, such as Git Repo, cannot run in the browser.
+- Dialog calls are synchronous browser modals. `select` prompts for a 1-based
+  option number; `select_with_checks` then asks each checkbox state. Canceling
+  selection preserves the checkbox defaults. Theme names are accepted with
+  the browser's native appearance. Key state is cleared after a modal closes
+  because the browser may consume physical releases while it is open.
+- `beep` uses Web Audio; `play_audio` uses browser media playback and supported
+  codecs. Playback starts asynchronously after user interaction. A later
+  playback/decoding rejection is displayed by the frontend. Tracker/native
+  decoders are not included; `stop_audio` and `is_audio_playing` use browser
+  audio state. The browser host stops its playback when an app ends or is replaced.
+
+Build and test commands are maintained in the
+[reference reader README](https://github.com/redbug26/kapsule-rust).

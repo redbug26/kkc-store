@@ -1,0 +1,23 @@
+[application]
+id = "pepper_buster"
+name = "Pepper Buster"
+version = "1.0.0"
+description = "Pac-Man-style Kapsule adapted from Pepper Buster GX4000: eight original mazes, four ghost personalities, turbo and six bonus effects."
+category = "other"
+
+[runtime]
+main = "app.lua"
+fps = 50
+width = 76
+height = 26
+
+[[install]]
+os = ["macos", "linux", "windows"]
+method = "manual"
+url = "https://github.com/redbug26/kkc-store/tree/main/applications/pepper_buster"
+command = "Copy the complete pepper_buster directory into the Kapsule player or the KKC data applications directory, then launch it with kapsule pepper_buster or the KKC association kkc-lua-app:pepper_buster."
+
+[extra]
+author = "Miguel Vanhove"
+homepage = "https://github.com/redbug26/kkc-store/tree/main/applications/pepper_buster"
+notes = "Kapsule adaptation of Pepper Buster CPC/GX4000. Includes the original eight mazes and game rules with a character-cell renderer. No external program or native audio decoder required."

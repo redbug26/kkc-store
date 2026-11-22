@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-22T09:48:17.202292+00:00",
+  "generated_at": "2026-11-22T16:46:21.967001+00:00",
   "source_repo": "https://github.com/redbug26/kkc-store",
   "plugins_count": 16,
   "plugins": [
@@ -348,7 +348,7 @@
       }
     }
   ],
-  "applications_count": 22,
+  "applications_count": 23,
   "applications": [
     {
       "id": "ascii",
@@ -1020,6 +1020,40 @@
         "homepage": "https://stian.cubic.org/project-ocp.php",
         "repository": "https://github.com/mywave82/opencubicplayer",
         "license": "GPL-2.0-or-later"
+      }
+    },
+    {
+      "id": "pepper_buster",
+      "name": "Pepper Buster",
+      "version": "1.0.0",
+      "description": "Pac-Man-style Kapsule adapted from Pepper Buster GX4000: eight original mazes, four ghost personalities, turbo and six bonus effects.",
+      "category": "other",
+      "type": null,
+      "wait_for_key_after_exit": false,
+      "mime_types": [],
+      "install": [
+        {
+          "os": [
+            "macos",
+            "linux",
+            "windows"
+          ],
+          "method": "manual",
+          "command": "Copy the complete pepper_buster directory into the Kapsule player or the KKC data applications directory, then launch it with kapsule pepper_buster or the KKC association kkc-lua-app:pepper_buster.",
+          "url": "https://github.com/redbug26/kkc-store/tree/main/applications/pepper_buster"
+        }
+      ],
+      "descriptor": "applications/pepper_buster/apps.toml",
+      "extra": {
+        "author": "Miguel Vanhove",
+        "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/pepper_buster",
+        "notes": "Kapsule adaptation of Pepper Buster CPC/GX4000. Includes the original eight mazes and game rules with a character-cell renderer. No external program or native audio decoder required."
+      },
+      "runtime": {
+        "main": "app.lua",
+        "fps": 50,
+        "width": 76,
+        "height": 26
       }
     },
     {

@@ -355,6 +355,7 @@ object. Test the installed app in KKC before publishing it.
 | [Snake](../applications/snake/app.lua) | Game state and timed movement. |
 | [Tetris](../applications/tetris/app.lua) | Game loop and keyboard handling. |
 | [Rockland](../applications/rockland/app.lua) | Local modules and a larger game. |
+| [Pepper Buster](../applications/pepper_buster/README.md) | A source-verified arcade port with automatic integer zoom, a full-screen menu, and a separate deterministic engine. |
 
 The API originated in KKC Rust. Its current authority is the standalone
 [kapsule-rust runtime](https://github.com/redbug26/kapsule-rust), with
@@ -373,3 +374,61 @@ errors for unavailable operations. Other KKC features retain their own reference
 The standalone reader includes Symphonia audio decoding (WAV, MP3, FLAC, Ogg,
 etc.), without KKC's tracker/native plugins. Unsupported formats raise a Lua
 error. Dialog palette names are accepted with one shared beige style.
+
+## Run a Kapsule in WebAssembly
+
+The [reference runtime](https://github.com/redbug26/kapsule-rust) also builds for
+`wasm32-unknown-emscripten`. In that repository, activate an Emscripten SDK,
+install the Rust target, and run:
+
+```sh
+rustup target add --toolchain stable wasm32-unknown-emscripten
+python3 tools/build_wasm.py
+python3 tools/serve_web.py --port 8080
+```
+
+Open `http://localhost:8080`, select an example or use **Ouvrir un dossier** to
+choose the directory containing `apps.toml`. All Lua modules and assets must
+be included. The browser runs the shared Rust/Lua 5.4 engine, not a translation
+of your Lua application. It reports real keyboard press/release events.
+
+`kkc-fs` operates on a temporary in-memory filesystem, not the original folder.
+Files changed by the application are lost when another Kapsule is opened or
+the page is reloaded. Imported folders are limited to 64 MiB. No application
+server or upload service is involved; `dist/web` is a static distribution.
+
+Lua runs in a dedicated worker. A callback taking more than five seconds
+(excluding browser dialogs) stops that worker, allowing another Kapsule to
+start. Lua allocations are limited to 64 MiB; the WASM heap is capped at
+512 MiB. Dialogs require HTTPS (or localhost) and the COOP/COEP headers
+provided by the reference player’s Apache configuration and preview server.
+
+Shell processes are unavailable: `kkc-shell.run` raises an explicit error.
+Audio decoding depends on the browser; dialogs use its native modal windows.
+See the [browser limitations](lua-api.md#webassembly-browser-host) before
+porting an application that uses platform services.
+
+### Public browser player and store loading
+
+The browser player is hosted at [kapsule.kyuran.be](https://kapsule.kyuran.be/).
+It lists every application with a `runtime` table from this repository's
+compiled index. Select a Kapsule and click **Lancer**, or share a link such as
+[Rockland](https://kapsule.kyuran.be/?kapsule=rockland), which preselects it.
+**Actualiser le store** refreshes the catalogue.
+
+Keep every required Lua module and asset in the directory containing the
+application's `apps.toml`. The browser downloads that entire directory from
+one pinned commit, using the index's `descriptor` field rather than assuming
+the directory name equals the application ID. Binary assets are supported.
+Downloads can be cancelled; the limit is 64 MiB and 4096 files per Kapsule.
+Symlinks are not supported. The reader verifies the selected ID against the
+manifest. External-process limitations still apply.
+
+The website also bundles a complete store snapshot as JSON data packages
+during its build; application files are never exposed as executable server
+files. Each publication rebuilds WASM and refreshes that snapshot, then
+removes its temporary compilation and publication directories. If GitHub
+is unavailable or rate limited, the bundled catalogue and files are used.
+Publish changes through the normal store index workflow to make them discoverable;
+users may need to refresh the player catalogue. The player build/publication
+commands are in the [reference repository](https://github.com/redbug26/kapsule-rust).
