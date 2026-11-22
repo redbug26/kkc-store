@@ -15,8 +15,8 @@ height = 24
 os = ["macos", "linux", "windows"]
 method = "manual"
 url = "https://github.com/redbug26/kkc-store/tree/main/applications/ascii"
-command = "Copy the complete ascii directory into the KKC data applications directory as ascii, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:ascii %f. Requires KKC with Lua application support."
+command = "Copy the complete ascii directory into the KKC data applications directory as ascii, then launch it using the association command kkc-lua-app:ascii %f. Requires KKC with Lua application support."
 
 [extra]
 homepage = "https://github.com/redbug26/kkc-store/tree/main/applications/ascii"
-notes = "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+notes = "KKC Lua application. Metadata and runtime settings are stored in apps.toml; keep this descriptor and all Lua files together."

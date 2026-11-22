@@ -2,6 +2,10 @@
 
 This repository contains the descriptors used by kkc TUI to build `dist/store-index.json`.
 
+For Lua application development, start with the [development guide](docs/lua-applications.md)
+and [API reference](docs/lua-api.md). The guide explains the store descriptor,
+the shared runtime descriptor, and how to test an app inside KKC.
+
 ## Contribution Workflow
 
 To propose a new plugin or application, first fork this repository on GitHub. Add your descriptor in your fork, run the index compiler locally, then open a pull request back to this repository.
@@ -142,7 +146,7 @@ Optional fields in the `[runtime]` section for Lua applications:
 - `main`: Lua entrypoint path relative to the application directory.
 - `fps`, `width`, `height`: positive integers for Lua runtime frame rate and terminal dimensions. These settings are preserved in a nested `runtime` object in the store index when present.
 
-Lua applications keep their metadata and runtime settings in `apps.toml`. The current KKC Lua runtime still reads `app.toml`: manual installation must generate an `[app]` table from `id`, `name`, `version`, `description` in `[application]` and the available `main`, `fps`, `width`, `height` fields in `[runtime]`.
+Lua applications keep their metadata in `[application]` and execution settings in `[runtime]` within the same `apps.toml`. KKC reads this descriptor directly. Distribute it alongside the Lua files and required assets.
 
 Each application must define at least one `[[install]]` table.
 

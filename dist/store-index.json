@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-22T08:41:16.251346+00:00",
+  "generated_at": "2026-11-22T09:40:44.686424+00:00",
   "source_repo": "https://github.com/redbug26/kkc-store",
   "plugins_count": 16,
   "plugins": [
@@ -367,14 +367,14 @@
             "windows"
           ],
           "method": "manual",
-          "command": "Copy the complete ascii directory into the KKC data applications directory as ascii, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:ascii %f. Requires KKC with Lua application support.",
+          "command": "Copy the complete ascii directory into the KKC data applications directory as ascii, then launch it using the association command kkc-lua-app:ascii %f. Requires KKC with Lua application support.",
           "url": "https://github.com/redbug26/kkc-store/tree/main/applications/ascii"
         }
       ],
       "descriptor": "applications/ascii/apps.toml",
       "extra": {
         "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/ascii",
-        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+        "notes": "KKC Lua application. Metadata and runtime settings are stored in apps.toml; keep this descriptor and all Lua files together."
       },
       "runtime": {
         "main": "app.lua",
@@ -542,14 +542,14 @@
             "windows"
           ],
           "method": "manual",
-          "command": "Copy the complete calculator directory into the KKC data applications directory as calculator, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:calculator %f. Requires KKC with Lua application support.",
+          "command": "Copy the complete calculator directory into the KKC data applications directory as calculator, then launch it using the association command kkc-lua-app:calculator %f. Requires KKC with Lua application support.",
           "url": "https://github.com/redbug26/kkc-store/tree/main/applications/calculator"
         }
       ],
       "descriptor": "applications/calculator/apps.toml",
       "extra": {
         "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/calculator",
-        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+        "notes": "KKC Lua application. Metadata and runtime settings are stored in apps.toml; keep this descriptor and all Lua files together."
       },
       "runtime": {
         "main": "app.lua",
@@ -575,14 +575,14 @@
             "windows"
           ],
           "method": "manual",
-          "command": "Copy the complete calendar directory into the KKC data applications directory as calendar, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:calendar %f. Requires KKC with Lua application support.",
+          "command": "Copy the complete calendar directory into the KKC data applications directory as calendar, then launch it using the association command kkc-lua-app:calendar %f. Requires KKC with Lua application support.",
           "url": "https://github.com/redbug26/kkc-store/tree/main/applications/calendar"
         }
       ],
       "descriptor": "applications/calendar/apps.toml",
       "extra": {
         "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/calendar",
-        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+        "notes": "KKC Lua application. Metadata and runtime settings are stored in apps.toml; keep this descriptor and all Lua files together."
       },
       "runtime": {
         "main": "app.lua",
@@ -678,14 +678,14 @@
             "windows"
           ],
           "method": "manual",
-          "command": "Copy the complete git_repo directory into the KKC data applications directory as git_repo, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:git_repo %f. Requires KKC with Lua application support.",
+          "command": "Copy the complete git_repo directory into the KKC data applications directory as git_repo, then launch it using the association command kkc-lua-app:git_repo %f. Requires KKC with Lua application support.",
           "url": "https://github.com/redbug26/kkc-store/tree/main/applications/git_repo"
         }
       ],
       "descriptor": "applications/git_repo/apps.toml",
       "extra": {
         "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/git_repo",
-        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+        "notes": "KKC Lua application. Metadata and runtime settings are stored in apps.toml; keep this descriptor and all Lua files together."
       },
       "runtime": {
         "main": "app.lua",
@@ -954,14 +954,14 @@
             "windows"
           ],
           "method": "manual",
-          "command": "Copy the complete template_lua_app directory into the KKC data applications directory as my_lua_app, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:my_lua_app %f. Requires KKC with Lua application support.",
+          "command": "Copy the complete template_lua_app directory into the KKC data applications directory as my_lua_app, then launch it using the association command kkc-lua-app:my_lua_app %f. Requires KKC with Lua application support.",
           "url": "https://github.com/redbug26/kkc-store/tree/main/applications/template_lua_app"
         }
       ],
       "descriptor": "applications/template_lua_app/apps.toml",
       "extra": {
         "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/template_lua_app",
-        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+        "notes": "KKC Lua application. Metadata and runtime settings are stored in apps.toml; keep this descriptor and all Lua files together."
       },
       "runtime": {
         "main": "src/app.lua",
@@ -1039,14 +1039,14 @@
             "windows"
           ],
           "method": "manual",
-          "command": "Copy the complete rockland directory into the KKC data applications directory as rockland, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:rockland %f. Requires KKC with Lua application support.",
+          "command": "Copy the complete rockland directory into the KKC data applications directory as rockland, then launch it using the association command kkc-lua-app:rockland %f. Requires KKC with Lua application support.",
           "url": "https://github.com/redbug26/kkc-store/tree/main/applications/rockland"
         }
       ],
       "descriptor": "applications/rockland/apps.toml",
       "extra": {
         "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/rockland",
-        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+        "notes": "KKC Lua application. Metadata and runtime settings are stored in apps.toml; keep this descriptor and all Lua files together."
       },
       "runtime": {
         "main": "app.lua",
@@ -1072,14 +1072,14 @@
             "windows"
           ],
           "method": "manual",
-          "command": "Copy the complete snake directory into the KKC data applications directory as snake, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:snake %f. Requires KKC with Lua application support.",
+          "command": "Copy the complete snake directory into the KKC data applications directory as snake, then launch it using the association command kkc-lua-app:snake %f. Requires KKC with Lua application support.",
           "url": "https://github.com/redbug26/kkc-store/tree/main/applications/snake"
         }
       ],
       "descriptor": "applications/snake/apps.toml",
       "extra": {
         "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/snake",
-        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+        "notes": "KKC Lua application. Metadata and runtime settings are stored in apps.toml; keep this descriptor and all Lua files together."
       },
       "runtime": {
         "fps": 10,
@@ -1176,14 +1176,14 @@
             "windows"
           ],
           "method": "manual",
-          "command": "Copy the complete tetris directory into the KKC data applications directory as tetris, recreate app.toml with an [app] table containing id, name, version and description from [application], plus the available main, fps, width and height fields from [runtime] in apps.toml, then launch it using the association command kkc-lua-app:tetris %f. Requires KKC with Lua application support.",
+          "command": "Copy the complete tetris directory into the KKC data applications directory as tetris, then launch it using the association command kkc-lua-app:tetris %f. Requires KKC with Lua application support.",
           "url": "https://github.com/redbug26/kkc-store/tree/main/applications/tetris"
         }
       ],
       "descriptor": "applications/tetris/apps.toml",
       "extra": {
         "homepage": "https://github.com/redbug26/kkc-store/tree/main/applications/tetris",
-        "notes": "KKC Lua application. Runtime settings are stored in apps.toml. The current KKC Lua runtime requires an app.toml manifest generated from them; keep all Lua files together."
+        "notes": "KKC Lua application. Metadata and runtime settings are stored in apps.toml; keep this descriptor and all Lua files together."
       },
       "runtime": {
         "main": "app.lua",
