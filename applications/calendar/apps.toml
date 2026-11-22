@@ -15,8 +15,8 @@ height = 20
 os = ["macos", "linux", "windows"]
 method = "manual"
 url = "https://github.com/redbug26/kkc-store/tree/main/applications/calendar"
-command = "Copy the complete calendar directory into the KKC data applications directory as calendar, then launch it using the association command kkc-lua-app:calendar %f. Requires KKC with Lua application support."
+command = "Copy the complete calendar directory into the KKC data applications directory as calendar, then launch it using the association command kkc-lua-app:calendar %f. Requires KKC with Kapsule support."
 
 [extra]
 homepage = "https://github.com/redbug26/kkc-store/tree/main/applications/calendar"
-notes = "KKC Lua application. Metadata and runtime settings are stored in apps.toml; keep this descriptor and all Lua files together."
+notes = "KKC Kapsule (Lua application). Metadata and runtime settings are stored in apps.toml; keep this descriptor and all Lua files together."

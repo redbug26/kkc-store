@@ -1,6 +1,7 @@
-# Developing Lua applications for KKC
+# Developing Kapsules for KKC
 
-Build terminal tools and games with Lua 5.4. KKC supplies the window, event loop,
+A **Kapsule** is a Lua application running inside KKC. Build terminal tools
+and games with Lua 5.4. KKC supplies the window, event loop,
 keyboard and mouse events, a character-cell drawing buffer, and access to files,
 processes, dialogs, and audio. Your application returns a table of callbacks.
 

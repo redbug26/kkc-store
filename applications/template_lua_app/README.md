@@ -1,6 +1,6 @@
-# KKC Lua Application Starter
+# KKC Kapsule Starter
 
-This template is a starting point for shipping a Lua terminal app for KKC.
+This template is a starting point for shipping a Kapsule: a Lua terminal application for KKC.
 
 Follow the [development guide](../../docs/lua-applications.md) for a complete
 first application, configuration, testing, and publishing. See the

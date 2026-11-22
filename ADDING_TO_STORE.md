@@ -2,7 +2,7 @@
 
 This repository contains the descriptors used by kkc TUI to build `dist/store-index.json`.
 
-For Lua application development, start with the [development guide](docs/lua-applications.md)
+For Kapsule development, start with the [development guide](docs/lua-applications.md)
 and [API reference](docs/lua-api.md). The guide explains the store descriptor,
 the shared runtime descriptor, and how to test an app inside KKC.
 
@@ -141,12 +141,12 @@ Optional fields in `[application]`:
 - `type`: `external_viewer` or `external_editor`. Omit this field if the application is not tied to a specific role.
 - `wait_for_key_after_exit`: boolean, defaults to `false`. Set to `true` for applications that render output and then return to the system immediately, so kkc can show a “Press a key to continue” prompt after execution.
 
-Optional fields in the `[runtime]` section for Lua applications:
+Optional fields in the `[runtime]` section for Kapsules:
 
 - `main`: Lua entrypoint path relative to the application directory.
 - `fps`, `width`, `height`: positive integers for Lua runtime frame rate and terminal dimensions. These settings are preserved in a nested `runtime` object in the store index when present.
 
-Lua applications keep their metadata in `[application]` and execution settings in `[runtime]` within the same `apps.toml`. KKC reads this descriptor directly. Distribute it alongside the Lua files and required assets.
+Kapsules keep their metadata in `[application]` and execution settings in `[runtime]` within the same `apps.toml`. KKC reads this descriptor directly. Distribute it alongside the Lua files and required assets.
 
 Each application must define at least one `[[install]]` table.
 

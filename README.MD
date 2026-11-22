@@ -13,11 +13,11 @@ Contributions are welcome. New plugins and applications can be proposed through 
 
 Applications listed in this store must be usable from a terminal/TUI context. They should open or run directly in the terminal so kkc TUI can launch them as external viewers, editors, or tools.
 
-## Develop a Lua application
+## Develop a Kapsule
 
-Read the [Lua application development guide](docs/lua-applications.md) to build
+Read the [Kapsule development guide](docs/lua-applications.md) to build
 your first app, configure `[runtime]`, run it in KKC, and publish it in this
-store. The [Lua API reference](docs/lua-api.md) documents callbacks and all
+store. The [Kapsule API reference](docs/lua-api.md) documents callbacks and all
 runtime modules with signatures and examples.
 
 ## Repository layout

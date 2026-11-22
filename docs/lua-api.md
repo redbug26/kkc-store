@@ -1,4 +1,4 @@
-# KKC Lua API reference
+# KKC Kapsule API reference
 
 [Development guide](lua-applications.md) · [Callbacks](#callbacks) ·
 [Modules](#modules) · [Conventions](#conventions)
@@ -287,5 +287,5 @@ silent according to terminal settings.
 `play_audio` passes the path directly to the host: it does not resolve it
 relative to the app directory like `kkc-fs`. Pass an absolute path, for example
 one resolved from a launcher argument using `fs.join(kkc.get_cwd(), arg)`.
-Audio state is shared with the host; the Lua app loop does not automatically
+Audio state is shared with the host; the Kapsule loop does not automatically
 stop it when the app exits.

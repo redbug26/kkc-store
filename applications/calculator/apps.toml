@@ -15,8 +15,8 @@ height = 24
 os = ["macos", "linux", "windows"]
 method = "manual"
 url = "https://github.com/redbug26/kkc-store/tree/main/applications/calculator"
-command = "Copy the complete calculator directory into the KKC data applications directory as calculator, then launch it using the association command kkc-lua-app:calculator %f. Requires KKC with Lua application support."
+command = "Copy the complete calculator directory into the KKC data applications directory as calculator, then launch it using the association command kkc-lua-app:calculator %f. Requires KKC with Kapsule support."
 
 [extra]
 homepage = "https://github.com/redbug26/kkc-store/tree/main/applications/calculator"
-notes = "KKC Lua application. Metadata and runtime settings are stored in apps.toml; keep this descriptor and all Lua files together."
+notes = "KKC Kapsule (Lua application). Metadata and runtime settings are stored in apps.toml; keep this descriptor and all Lua files together."
