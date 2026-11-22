@@ -1,8 +1,12 @@
 # kkc-store
 
+The standalone [Kapsule Rust runtime](https://github.com/redbug26/kapsule-rust) is the reference
+implementation for Kapsule execution. KKC Rust, KKC iPad and Kommando iPad must
+follow its changes. The development guide and API documentation remain in
+the [development guide](https://github.com/redbug26/kkc-store/blob/main/docs/lua-applications.md) and [API reference](https://github.com/redbug26/kkc-store/blob/main/docs/lua-api.md) in **kkc-store**.
+
 Community plugin and application store for **kkc**.
 
-- Local repository: `/Users/miguelvanhove/Dropbox/Sources/kkc-store`
 - GitHub repository: `https://github.com/redbug26/kkc-store`
 
 This repository may not contain every plugin binary or application package directly. Instead, it stores **plugin descriptors** and **application descriptors**, then generates a compiled **store index** (`dist/store-index.json`) that kkc can read to list and install plugins or applications.

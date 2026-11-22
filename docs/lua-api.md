@@ -1,5 +1,10 @@
 # KKC Kapsule API reference
 
+The standalone [Kapsule Rust runtime](https://github.com/redbug26/kapsule-rust) is the reference
+implementation for Kapsule execution. KKC Rust, KKC iPad and Kommando iPad must
+follow its changes. The development guide and API documentation remain in
+the [development guide](https://github.com/redbug26/kkc-store/blob/main/docs/lua-applications.md) and [API reference](https://github.com/redbug26/kkc-store/blob/main/docs/lua-api.md) in **kkc-store**.
+
 [Development guide](lua-applications.md) · [Callbacks](#callbacks) ·
 [Modules](#modules) · [Conventions](#conventions)
 
@@ -70,10 +75,19 @@ Modifier flags are not passed separately to callbacks.
 F5 is reserved for host zoom. Ctrl-C is reserved for host exit. Esc reaches
 the application; implement quitting explicitly if desired.
 
-Terminals differ in repeat and release reporting. New-press detection and
-`is_down` use a 200 ms last-event timeout; they are approximations, and a
-long hold without repeat events may expire. Release callbacks require terminal
-support. Do not depend on `keyup` alone to finalize essential saved state.
+Terminals differ in repeat and release reporting. When key-up support is
+negotiated, `is_down` remains true from the press until a release or focus loss,
+including the operating-system delay before the first repeat. New-press
+detection uses the same held state. The host does not generate repeat events.
+
+Without key-up support, new-press detection and `is_down` use the historical
+200 ms last-event timeout; a long hold without repeat events may expire.
+Release callbacks require terminal support. Do not depend on `keyup` alone to
+finalize essential saved state.
+
+For smoother gameplay, use a terminal that supports key-up events. macOS
+Terminal does not report key releases. The standalone reader warns at startup
+when release-event support is unavailable; Enter or Esc dismisses the warning.
 
 ### Mouse
 
@@ -164,7 +178,7 @@ gfx.reset()
 | `LEFT`, `RIGHT`, `UP`, `DOWN` | Corresponding lowercase key strings. |
 | `SPACE`, `ENTER`, `ESC` | `"space"`, `"enter"`, `"esc"`. |
 | `HAS_RELEASE_EVENTS` | Boolean from the terminal's keyboard enhancement support probe. |
-| `is_down(name)` → boolean | Whether the key has a recent press/repeat timestamp. |
+| `is_down(name)` → boolean | Whether the key is held; without key-up support, whether it has a press/repeat timestamp less than 200 ms old. |
 
 ```lua
 local key = require("kkc-key")
@@ -289,3 +303,18 @@ relative to the app directory like `kkc-fs`. Pass an absolute path, for example
 one resolved from a launcher argument using `fs.join(kkc.get_cwd(), arg)`.
 Audio state is shared with the host; the Kapsule loop does not automatically
 stop it when the app exits.
+
+## Reference host and platform differences
+
+The standalone [kapsule-rust](https://github.com/redbug26/kapsule-rust) reader defines the reference execution contract.
+It starts zoomed (F5 toggles the manifest window), restores the terminal after
+Lua errors, and accepts a Kapsule directory or `apps.toml` directly. Its
+`--headless N` mode reports `HAS_RELEASE_EVENTS = false`, uses fixed frame
+deltas, and has no input events. Blocking dialogs raise an error without an
+interactive terminal. Ctrl-C also aborts an open dialog.
+
+Audio playback uses Rodio/Symphonia: WAV, MP3, FLAC, Ogg and other supported
+formats; KKC tracker/native plugins are not bundled. Unsupported formats raise
+an error. `select_with_checks` accepts both historical `theme_name` values
+with the same beige appearance in this host. KKC and iPad hosts may provide
+additional codecs and platform dialog styles while retaining these signatures.

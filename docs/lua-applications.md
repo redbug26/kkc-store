@@ -1,7 +1,12 @@
 # Developing Kapsules for KKC
 
-A **Kapsule** is a Lua application running inside KKC. Build terminal tools
-and games with Lua 5.4. KKC supplies the window, event loop,
+The standalone [Kapsule Rust runtime](https://github.com/redbug26/kapsule-rust) is the reference
+implementation for Kapsule execution. KKC Rust, KKC iPad and Kommando iPad must
+follow its changes. The development guide and API documentation remain in
+the [development guide](https://github.com/redbug26/kkc-store/blob/main/docs/lua-applications.md) and [API reference](https://github.com/redbug26/kkc-store/blob/main/docs/lua-api.md) in **kkc-store**.
+
+A **Kapsule** is a Lua application running in the standalone Kapsule reader or a compatible KKC/Kommando host. Build terminal tools
+and games with Lua 5.4. The host supplies the window, event loop,
 keyboard and mouse events, a character-cell drawing buffer, and access to files,
 processes, dialogs, and audio. Your application returns a table of callbacks.
 
@@ -16,7 +21,8 @@ processes, dialogs, and audio. Your application returns a table of callbacks.
 
 ### 1. Create a directory
 
-Create this layout in your KKC data directory, under `applications/hello_lua/`:
+Create this layout in any directory, for example `hello_lua/`. To use KKC
+discovery, place it under `applications/hello_lua/` in the KKC data directory:
 
 ```text
 hello_lua/
@@ -119,7 +125,32 @@ current state. The example uses `keydown` for a toggle so repeated key events
 do not continually change it. Terminals without distinct release events use
 a timeout to approximate separate presses.
 
-### 4. Launch it in KKC
+### 4. Launch it with the reference reader
+
+A Kapsule can live in any directory. Install the standalone reader from
+[kapsule-rust](https://github.com/redbug26/kapsule-rust) with
+`cargo install --git https://github.com/redbug26/kapsule-rust --locked`, then run:
+
+```sh
+kapsule /path/to/hello_lua
+kapsule /path/to/hello_lua/apps.toml -- argument1 argument2
+kapsule --check /path/to/hello_lua
+kapsule --headless 60 --dump-screen /path/to/hello_lua
+```
+
+Use the built `target/release/kapsule` path, or install it with
+`cargo install --path . --locked`. No KKC installation or system Lua is needed.
+The reference reader starts zoomed; `--windowed` uses the manifest window.
+F5 toggles zoom, Ctrl-C exits, and Esc reaches your callback. `--cwd DIR`
+sets `kkc.get_cwd()` and the default process directory; relative `kkc-fs`
+paths still resolve from the Kapsule directory.
+
+`--check` checks the descriptor and entry syntax without executing Lua.
+Headless mode runs up to the requested number of frames at `1/fps`, without
+input, using an 80×24 terminal (78×22 content when zoomed). Interactive dialogs
+require a terminal. The screen dump contains only the Lua buffer.
+
+### 5. Launch it in KKC
 
 Open **Tools > Run Lua app** and choose **Hello Lua**. An opener or file
 association can also use the internal command `kkc-lua-app:hello_lua`.
@@ -325,6 +356,20 @@ object. Test the installed app in KKC before publishing it.
 | [Tetris](../applications/tetris/app.lua) | Game loop and keyboard handling. |
 | [Rockland](../applications/rockland/app.lua) | Local modules and a larger game. |
 
-The API reference was checked against `kkc-rust/src/lua_apps.rs` and
-`kkc-rust/src/lua_dialog.rs` in the sibling runtime repository. That source is
-the authority when the runtime evolves.
+The API originated in KKC Rust. Its current authority is the standalone
+[kapsule-rust runtime](https://github.com/redbug26/kapsule-rust), with
+`src/runtime.rs`, `src/lua_dialog.rs` and `src/audio.rs`.
+
+## Runtime evolution and consumer hosts
+
+The source of truth is [kapsule-rust](https://github.com/redbug26/kapsule-rust), especially `src/runtime.rs`,
+`src/lua_dialog.rs`, and `src/audio.rs`. For changes to manifests, callbacks,
+module signatures or observable execution behavior, update this guide and
+[lua-api.md](lua-api.md), add a compatibility check to the standalone runtime,
+and synchronize `kkc/kkc-rust`, `ios/kkc`, and `ios/commando`.
+Platform restrictions must keep the Lua API available and return explicit
+errors for unavailable operations. Other KKC features retain their own references.
+
+The standalone reader includes Symphonia audio decoding (WAV, MP3, FLAC, Ogg,
+etc.), without KKC's tracker/native plugins. Unsupported formats raise a Lua
+error. Dialog palette names are accepted with one shared beige style.
